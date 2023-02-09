@@ -38,3 +38,5 @@ The chatbot can be further customized to fit your use-case by modifying the code
 Please open an issues on the repository if you find any bugs or if you would like to contribute.
 
 Code and documentation Copyright 2023 [Karan Singla](https://www.linkedin.com/in/karansingla007/).
+
+https://user-images.githubusercontent.com/26064126/217953251-8dcdd8ab-3a71-4ff5-a056-f925f6583b1b.mp4
