@@ -18,7 +18,7 @@ class ChatScreenBloc extends Bloc<ChatScreenEvent, ChatScreenState> {
       ChatScreenEvent event, Emitter<ChatScreenState> emit) async {
     if (event is InitChatScreen) {
       openAI = OpenAI.instance.build(
-          token: "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",
+          token: "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",
           baseOption: HttpSetup(receiveTimeout: 6000),isLogger: true
       );
       emit(const ChatScreenInitialized(messages: []));

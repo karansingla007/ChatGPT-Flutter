@@ -14,34 +14,54 @@ class ChatMessage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
+    if (sender == "bot") {
+      return Row(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        mainAxisAlignment: MainAxisAlignment.end,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          const SizedBox(width: 40,),
+          Container(
+            decoration: const BoxDecoration(
+              color: Colors.blue,
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8), bottomRight: Radius.circular(8), topLeft: Radius.circular(8),),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8),
+              child: Container(
+                  constraints: BoxConstraints(minWidth: 40, maxWidth: MediaQuery.of(context).size.width - 110),
+                  child: Text(text.trim()),),
+            ),),
+        ],
+      ).py8();
+    } else {
+      return Row(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
-        Text(sender)
-            .text
-            .subtitle1(context)
-            .make()
-            .box
-            .color(sender == "user" ? Vx.red200 : Vx.green200)
-            .p16
-            .rounded
-            .alignCenter
-            .makeCentered(),
-        Expanded(
-          child: isImage
-              ? AspectRatio(
-                  aspectRatio: 16 / 9,
-                  child: Image.network(
-                    text,
-                    loadingBuilder: (context, child, loadingProgress) =>
-                        loadingProgress == null
-                            ? child
-                            : const CircularProgressIndicator.adaptive(),
-                  ),
-                )
-              : text.trim().text.bodyText1(context).make().px8(),
+        Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.only(bottomLeft: Radius.circular(8), bottomRight: Radius.circular(8), topRight: Radius.circular(8),),
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Container(
+                      constraints: BoxConstraints(minWidth: 40, maxWidth: MediaQuery.of(context).size.width - 100),
+                      child: Text(text)),
+                  const SizedBox(width: 8,),
+                  const Icon(Icons.copy, size: 14),
+                ],
+              ),
+            ),
         ),
+        const SizedBox(width: 40,),
       ],
     ).py8();
+    }
   }
 }

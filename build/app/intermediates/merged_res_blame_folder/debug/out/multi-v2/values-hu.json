@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/skaran/Downloads/ChatGPT-Flutter-AIChatBot-main/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-hu/values-hu.xml",
+            "outputFile": "/Users/skaran/Downloads/My Projcts/ChatGPT-Flutter/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-hu/values-hu.xml",
             "map": [
                 {
                     "source": "/Users/skaran/.gradle/caches/transforms-3/acbce933e4b464a5224ed377a62db1f5/transformed/core-1.6.0/res/values-hu/values-hu.xml",

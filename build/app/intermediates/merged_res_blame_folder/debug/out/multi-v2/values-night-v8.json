@@ -1,10 +1,10 @@
 {
     "logs": [
         {
-            "outputFile": "/Users/skaran/Downloads/ChatGPT-Flutter-AIChatBot-main/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
+            "outputFile": "/Users/skaran/Downloads/My Projcts/ChatGPT-Flutter/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml",
             "map": [
                 {
-                    "source": "/Users/skaran/Downloads/ChatGPT-Flutter-AIChatBot-main/android/app/src/main/res/values-night/styles.xml",
+                    "source": "/Users/skaran/Downloads/My Projcts/ChatGPT-Flutter/android/app/src/main/res/values-night/styles.xml",
                     "from": {
                         "startLines": "3,14",
                         "startColumns": "4,4",

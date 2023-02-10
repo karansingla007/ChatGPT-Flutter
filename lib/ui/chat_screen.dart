@@ -27,27 +27,34 @@ class ChatScreen extends StatelessWidget {
     return Row(
       children: [
         Expanded(
-          child: TextField(
-            controller: _controller,
-            onSubmitted: (value) => _sendMessage(false),
-            decoration: const InputDecoration.collapsed(
-                hintText: "Question/description"),
+          child: Container(
+            decoration: const BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.all(Radius.circular(8)),
+            ),
+            padding: const EdgeInsets.only(top: 8.0, bottom: 8, left: 4, right: 4),
+            child: TextField(
+              controller: _controller,
+              maxLines: 4,
+              minLines: 1,
+              onSubmitted: (value) => _sendMessage(false),
+              decoration: const InputDecoration.collapsed(
+                  hintText: "Message", ),
+            ),
           ),
         ),
-        ButtonBar(
-          children: [
-            IconButton(
-              icon: const Icon(Icons.send),
-              onPressed: () {
-                _sendMessage(false);
-              },
-            ),
-            TextButton(
-                onPressed: () {
-                  _sendMessage(true);
-                },
-                child: const Text("Generate Image"))
-          ],
+        const SizedBox(width: 8,),
+        Container(
+          decoration: BoxDecoration(
+            color: Colors.blue,
+            borderRadius: BorderRadius.all(Radius.circular(1000)),
+          ),
+          child: IconButton(
+            icon: const Icon(Icons.send),
+            onPressed: () {
+              _sendMessage(false);
+            },
+          ),
         ),
       ],
     ).px16();
@@ -56,7 +63,22 @@ class ChatScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text("ChatGPT Flutter Demo")),
+        appBar: AppBar(title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: const [
+            Text("Real Assist AI",  style: TextStyle(fontSize: 18,)),
+            Text("This is private message, between you and Assistant", style: TextStyle(fontSize: 12,)),
+          ],
+        ),
+        actions: const [
+          Padding(
+            padding: EdgeInsets.only(right: 16.0),
+            child: Icon(Icons.chat),
+          )
+        ],
+        elevation: 2,
+        backgroundColor: Colors.white,),
+        backgroundColor: Colors.white.withOpacity(0.9),
         body: SafeArea(
           child: BlocBuilder<ChatScreenBloc, ChatScreenState>(
             bloc: _chatScreenBloc,
@@ -79,15 +101,8 @@ class ChatScreen extends StatelessWidget {
                           },
                         )),
                     if (state.isTyping) const ThreeDots(),
-                    const Divider(
-                      height: 1.0,
-                    ),
-                    Container(
-                      decoration: BoxDecoration(
-                        color: context.cardColor,
-                      ),
-                      child: _buildTextComposer(),
-                    )
+                    _buildTextComposer(),
+                    const SizedBox(height: 8,),
                   ],
                 );
               } else {
